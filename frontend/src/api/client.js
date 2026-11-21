@@ -1,4 +1,16 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+// Determine base API URL:
+// 1. Uses VITE_API_URL if defined (from environment variables or .env files)
+// 2. In production (e.g. Render build), defaults to the live Render backend
+// 3. In local development, defaults to localhost:5000/api
+const rawApiUrl =
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD
+    ? 'https://blogsphere-qnvt.onrender.com/api'
+    : 'http://localhost:5000/api');
+
+// Normalize API_URL so it reliably ends with '/api' and has no trailing slash
+const cleanBase = rawApiUrl.replace(/\/+$/, '');
+const API_URL = cleanBase.endsWith('/api') ? cleanBase : `${cleanBase}/api`;
 
 const request = async (endpoint, options = {}) => {
   const token = localStorage.getItem('blogsphere_token');

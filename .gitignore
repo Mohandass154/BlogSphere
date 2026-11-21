@@ -13,6 +13,9 @@ node_modules/
 !.env.example
 !*/.env.example
 !**/.env.example
+!.env.production
+!*/.env.production
+!**/.env.production
 
 # Production build outputs
 dist/
