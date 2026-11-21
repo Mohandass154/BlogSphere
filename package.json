@@ -1,0 +1,15 @@
+{
+  "name": "blogsphere-monorepo",
+  "version": "1.0.0",
+  "description": "Simple, modern, and lightweight blogging platform",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && npm run seed",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "test": "cd backend && npm test"
+  },
+  "keywords": ["blog", "react", "node", "express", "mongodb", "jwt", "vite"],
+  "author": "",
+  "license": "MIT"
+}
